@@ -34,6 +34,7 @@ int main(int argc, char **argv){
 
 	if(buf == NULL){
 		fprintf(stderr, "malloc failed\n");
+		exit(1);
 	}
 
 	lseek(fd, 0, SEEK_SET);
