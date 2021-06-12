@@ -23,7 +23,7 @@ int main(int argc, char **argv){
 
 	strcpy(inputFile, argv[1]);
 
-	fd = open(inputFile, O_RDONLY);		
+	fd = open(inputFile, O_RDWR);		
 	if(fd < 0){
 		fprintf(stderr, "open error. filename: %s\n", inputFile);
 		exit(1);
@@ -49,7 +49,8 @@ int main(int argc, char **argv){
 		offset += readSize;
 	}
 	buf[offset] = '\0';
-	fd = open(inputFile, O_WRONLY);		
+
+	lseek(fd, 0, SEEK_SET);		
 	write(fd, buf, fileSize);
 	
 }
