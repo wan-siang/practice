@@ -16,7 +16,8 @@ int main(int argc, char **argv){
 	int	i;
 
 	if(argc!=2){
-		fprintf(stderr, "%s inputfile\n", argv[0]);	
+		fprintf(stderr, "%s inputfile\n", argv[0]);
+		exit(1);
 	}	
 	fd = open(argv[1], O_RDWR);		
 	if(fd < 0){
