@@ -5,8 +5,6 @@
 
 #include	<stdio.h>
 #include	<stdlib.h>
-#include	<string.h>
-#include	<ctype.h>
 #include	<fcntl.h>
 #include	<unistd.h>
 
@@ -17,6 +15,9 @@ int main(int argc, char **argv){
 	unsigned int	fileSize;
 	int	i;
 
+	if(argc!=2){
+		fprintf(stderr, "%s inputfile\n", argv[0]);	
+	}	
 	fd = open(argv[1], O_RDWR);		
 	if(fd < 0){
 		fprintf(stderr, "open error. filename: %s\n", argv[1]);
